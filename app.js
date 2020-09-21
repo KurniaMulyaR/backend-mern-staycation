@@ -6,6 +6,7 @@ var logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require("express-session");
 const flash = require("connect-flash");
+const cors = require("cors")
 // import mongoose
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://Kurniamr:bwamern@kurniadb-xyvmn.mongodb.net/db_staycation?retryWrites=true&w=majority', {
@@ -31,6 +32,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
+app.use(cors());
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
